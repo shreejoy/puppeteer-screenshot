@@ -4,6 +4,7 @@ const puppeteer = require('puppeteer-core');
 async function getScreenshot(url, type, quality, fullPage, viewportWidth, viewportHeight) {
     const browser = await puppeteer.launch({
         args: chrome.args,
+        ignoreDefaultArgs: ['--disable-extensions'],
         executablePath: await chrome.executablePath,
         headless: chrome.headless,
         defaultViewport: {
