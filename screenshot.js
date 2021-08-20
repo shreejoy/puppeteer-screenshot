@@ -4,7 +4,6 @@ const { getScreenshot } = require('./chromium');
 const { getInt, getUrlFromPath, isValidUrl } = require('./validator');
 
 const SECRET_KEY = process.env.SECRET_KEY;
-console.log(SECRET_KEY, req.query.key, compare(req.query.key, SECRET_KEY));
 
 const compare = (a, b) => {
     try {
@@ -15,6 +14,7 @@ const compare = (a, b) => {
 };
 
 module.exports = async function (req, res) {
+    console.log(SECRET_KEY, req.query.key, compare(req.query.key, SECRET_KEY));
     if (!compare(req.query.key, SECRET_KEY)) {
         res.statusCode = 403;
         res.setHeader('Content-Type', 'text/html');
