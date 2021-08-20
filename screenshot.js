@@ -4,6 +4,7 @@ const { getScreenshot } = require('./chromium');
 const { getInt, getUrlFromPath, isValidUrl } = require('./validator');
 
 const SECRET_KEY = process.env.SECRET_KEY;
+console.log(SECRET_KEY, req.query.key, compare(req.query.key, SECRET_KEY));
 
 const compare = (a, b) => {
     try {
